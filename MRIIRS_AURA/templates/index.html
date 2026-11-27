@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MRIIRS AURA - Artificial University Response Assistant, a university FAQ chatbot mini project.">
+  <title>MRIIRS AURA | Artificial University Response Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="ambient ambient-blue"></div><div class="ambient ambient-red"></div>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-mark"><span>A</span><i></i></div>
+      <div><div class="brand-name">MRIIRS <span>AURA</span></div><div class="brand-sub">ARTIFICIAL UNIVERSITY RESPONSE ASSISTANT</div></div>
+      <button class="mobile-close" id="closeSidebar" aria-label="Close menu">×</button>
+    </div>
+    <button class="new-chat" id="newChat"><span>＋</span> New conversation</button>
+    <div class="side-label">EXPLORE TOPICS</div>
+    <nav class="topic-nav" id="topicNav">
+      <button class="topic active" data-topic="All"><span class="topic-icon">✦</span> All topics <b>⌁</b></button>
+      <button class="topic" data-topic="Admissions"><span class="topic-icon red">↗</span> Admissions</button>
+      <button class="topic" data-topic="Fees & Scholarships"><span class="topic-icon blue">₹</span> Fees & scholarships</button>
+      <button class="topic" data-topic="Programmes"><span class="topic-icon">⌘</span> Programmes</button>
+      <button class="topic" data-topic="Academics"><span class="topic-icon blue">▤</span> Academics</button>
+      <button class="topic" data-topic="Examinations"><span class="topic-icon red">◷</span> Examinations</button>
+      <button class="topic" data-topic="Campus Facilities"><span class="topic-icon blue">⌂</span> Campus facilities</button>
+      <button class="topic" data-topic="Placements & Careers"><span class="topic-icon">↗</span> Placements & careers</button>
+      <button class="topic" data-topic="Student Support"><span class="topic-icon red">♡</span> Student support</button>
+      <button class="topic" data-topic="Contact & Help"><span class="topic-icon blue">◎</span> Contact & help</button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="mini-status"><span class="pulse"></span><div><b>AURA system operational</b><small>Curated FAQ engine · Ready</small></div></div>
+      <div class="sidebar-foot">ACADEMIC AI PROJECT <span>•</span> 2026</div>
+    </div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+      <div class="crumb">MRIIRS <span>/</span> <b>AURA</b></div>
+      <div class="top-right"><span class="secure"><i></i> STUDENT PROJECT DEMO</span><div class="avatar">AI</div></div>
+    </header>
+    <section class="workspace">
+      <div class="hero" id="hero">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR CAMPUS, CONNECTED</div>
+        <h1>Meet AURA.<br><span>Knowledge, connected.</span></h1>
+        <p class="hero-copy"><b>MRIIRS AURA</b> — Artificial University Response Assistant. A smarter guide to university information, built to give specific answers with source links instead of guessing.</p>
+        <div class="hero-meta"><span class="spark">✦</span> NLP-POWERED FAQ RETRIEVAL <span class="meta-line"></span><span>AVAILABLE 24 / 7</span></div>
+      </div>
+      <div class="chat-panel">
+        <div class="chat-head"><div class="bot-ident"><div class="bot-orb"><span>✦</span></div><div><b>MRIIRS AURA</b><small><i class="online-dot"></i> Artificial University Response Assistant</small></div></div><button class="clear-btn" id="clearChat" title="Clear conversation">↻ <span>Reset chat</span></button></div>
+        <div class="messages" id="messages" aria-live="polite">
+          <div class="message-row bot-row">
+            <div class="msg-avatar">✦</div><div class="message-content"><div class="message bot-message">Hello! I'm <b>MRIIRS AURA</b> — Artificial University Response Assistant.<br><br>Ask a specific question about admissions, MCA eligibility, course subjects, fees, scholarships, examinations, transport, campus facilities or placements. I use a curated university knowledge base and show the source used for each answer. If I cannot verify something, I will say so rather than guess.</div><div class="msg-time">JUST NOW <span>·</span> AURA</div></div>
+          </div>
+        </div>
+        <div class="suggestions-wrap" id="suggestionsWrap"><div class="suggestion-label">QUICK START <span>— SELECT A QUESTION</span></div>
+          <div class="suggestions" id="suggestions">
+            <button class="suggestion" data-question="What is the eligibility for the two-year MCA programme?"><span class="s-icon red">↗</span> MCA eligibility <span class="arrow">↗</span></button>
+            <button class="suggestion" data-question="What is the MCA fee at MRIIRS?"><span class="s-icon blue">₹</span> MCA fee details <span class="arrow">↗</span></button>
+            <button class="suggestion" data-question="How do I apply for admission to MRIIRS?"><span class="s-icon">⌘</span> Admission process <span class="arrow">↗</span></button>
+            <button class="suggestion" data-question="What facilities are available on the MRIIRS campus?"><span class="s-icon blue">⌂</span> Campus facilities <span class="arrow">↗</span></button>
+          </div>
+        </div>
+        <form class="composer" id="chatForm">
+          <div class="input-wrap"><span class="input-spark">✧</span><input id="messageInput" autocomplete="off" maxlength="500" placeholder="Ask AURA a specific question about MRIIRS..." aria-label="Type your question"><span class="char-count" id="charCount">0/500</span><button class="send-btn" type="submit" aria-label="Send message">➤</button></div>
+          <div class="composer-foot"><span><kbd>↵</kbd> to send <span class="foot-divider">·</span> <kbd>Esc</kbd> close menu</span><span>Curated answers · Official source links</span></div>
+        </form>
+      </div>
+      <footer class="page-footer"><span>© 2026 MRIIRS AURA <i>•</i> STUDENT MINI PROJECT</span><span><a href="https://manavrachna.edu.in/mriirs/" target="_blank" rel="noopener">OFFICIAL MRIIRS WEBSITE ↗</a><span class="footer-divider">·</span> <span class="disclaimer">Academic prototype · Verify current notices</span></span></footer>
+    </section>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body></html>
